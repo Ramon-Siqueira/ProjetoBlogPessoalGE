@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.generation.blogpessoal.model.Usuario;
 
 public class UserDetailsImpl implements UserDetails{
-
+	
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;
@@ -19,12 +19,12 @@ public class UserDetailsImpl implements UserDetails{
 	public UserDetailsImpl(Usuario user) {
 		this.userName = user.getUsuario();
 		this.password = user.getSenha();
-	
 	}
 	
 	public UserDetailsImpl() {
 		
 	}
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities(){
 		return authorities;
@@ -34,10 +34,12 @@ public class UserDetailsImpl implements UserDetails{
 	public String getPassword() {
 		return password;
 	}
+	
 	@Override
 	public String getUsername() {
 		return userName;
 	}
+	
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
@@ -47,6 +49,7 @@ public class UserDetailsImpl implements UserDetails{
 	public boolean isAccountNonLocked() {
 		return true;
 	}
+	
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
@@ -57,5 +60,5 @@ public class UserDetailsImpl implements UserDetails{
 		return true;
 	}
 	
-	
+
 }
